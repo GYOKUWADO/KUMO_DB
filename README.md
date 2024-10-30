@@ -28,3 +28,6 @@ SIGN.BAT
  ./Product_IMG.jsonに署名及びに検証
 
 LICENSE MIT
+
+!X!xXx!X! ON THE KUMO PROJECT !X!xXx!X!
+https://kumo.site
