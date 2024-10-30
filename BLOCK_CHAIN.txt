@@ -1,0 +1,14 @@
+STRAT_OF_BLOCK_CHAIN_LIST 
+[filename] [seed] 
+Namubutsu_of_unknown_writer_hanging_scroll.jpg ******** 
+############################################################### 
+Date:                          2024/10/30 10:30:42
+FileName:                      Product_IMG\Namubutsu_of_unknown_writer_hanging_scroll.jpg
+File to MD5-Algorithm Val:     f1638dba0d3e2897faebf35f08854503
+Name:                          玉和道
+TheBaseDomain:                 kumo.site
+TheBasePhone:                  0743-64-3170
+SeedFingerPrint:               7b113e4bcd820413a54c9d2f397c3e39
+MD5SimpleBlockchainSignature:  ba6de80a77159e4d13694f14e2c552d0
+There are seeds in this program.
+
