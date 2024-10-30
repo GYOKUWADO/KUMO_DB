@@ -12,7 +12,7 @@
 
 実行
 
-MASTER,bat
+MASTER.bat
 
  pythonで必要なライブラリがある場合は適宜pipでインストールして下さい。
 
