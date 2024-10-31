@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[プログラム] AES 暗号化</title>
+  <style> input { width: 500px; } </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+<body>
+  <p>
+    <!--<input type="text" name="data" id="data" placeholder="" value="Hello World!">-->
+    <select name="data" id="data">
+      <option>S</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+      <option>D</option>
+    </select>
+    <label for="">データ / Data(rankcodeを生成)</label>
+  </p>
+  <p>
+    <input type="password" name="pass_phrase" id="pass_phrase" value="">
+    <label for="">パスフレーズ / Path Phrase</label>
+  </p>
+  <p>
+    <input type="submit" id="execute" value="実行">
+  </p>
+  <div id="output"></div>
+  <script>
+    window.onload = () => {
+      let buttonExecute = document.getElementById('execute')
+      buttonExecute.addEventListener('click', () => {
+        execute()
+      });
+    }
+    function execute () {
+      // パスフレーズ（暗号鍵）
+      let passPhrase = document.getElementById('pass_phrase').value;
+      // 暗号化したい元のデータ
+      let data = document.getElementById('data').value;
+      let utf8_plain = CryptoJS.enc.Utf8.parse(data);
+      // 暗号化
+      let encrypted = CryptoJS.AES.encrypt( utf8_plain, passPhrase );
+      // 復号化
+      let decrypted = CryptoJS.AES.decrypt( encrypted , passPhrase );
+      let txt_dexrypted = decrypted.toString(CryptoJS.enc.Utf8);
+      // 表示
+      document.getElementById("output").innerHTML = 
+        "key : " + passPhrase +"<br />" +
+        "data : " + data + "<br />" +
+        "encrypted : " + encrypted + "<br />" +
+        "decrypted : " + txt_dexrypted;
+    }
+    </script>
+</body>
+</html>

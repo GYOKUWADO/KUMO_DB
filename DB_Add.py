@@ -3,6 +3,7 @@ import sys
 
 MD5SBH = sys.argv[1]
 
+#[rankcode]
 S = "U2FsdGVkX18LCdwBUA2QJ9i1B2NBOmREi2WSKGH5xA4="
 A = "U2FsdGVkX1/57Xx2ss7Cban6+GthY/DFJbRvF1JJd5g="
 B = "U2FsdGVkX1/Um3+YVc7NtbcuwcN1bEgaFXwP/hyQyn0="
