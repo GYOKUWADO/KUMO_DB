@@ -1,0 +1,112 @@
+<!doctype html> 
+<html> 
+<head> 
+<title>陰陽太極図</title> 
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" /> 
+<meta http-equiv="Content-style-Type" content="text/css" /> 
+<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+<meta name="author" content="玉和道" /> 
+<meta name="copyright" content="KUMO" /> 
+<meta name="description" content="道教の陰陽太極図です。" /> 
+<meta name="keywords" content="陰陽太極図" /> 
+<meta name="date" content="2023-03-26"> 
+<meta name="generater" content="notepad.exe" /> 
+<meta name="robots" content="index"> 
+<style>
+.btn {
+	position: relative;
+	width: 500px;
+	height:500px;
+	margin: 0 auto;
+	display: block;
+	border-radius: 12px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.btn img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 100%;
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.btn:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+.title {
+color:limegreen;
+}
+</style>
+<style>
+.ProductSearch{
+    width: fit-content;
+    margin: auto;
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">
+var url = './Product_IMG.json';
+
+function clickBtn1() {
+  const t1 = document.PS.id.value;
+  const mydata = document.PS.mydata_in.value;
+
+  localStorage.setItem('mydata', mydata);
+
+  console.log(`mydata = ${mydata}`);
+
+  target = $("#span2");
+
+  if(!t1) {
+             alert("idを入力してください。")
+          }
+
+  $.getJSON(url, function(data){
+     for(var n in data) {
+         if (data[n].id==t1){
+             The_AES_DATA = data[n].rank
+             console.log("AES_DATA:" + The_AES_DATA);
+
+             let decrypted = CryptoJS.AES.decrypt( The_AES_DATA , `${mydata}` );
+             let txt_dexrypted = decrypted.toString(CryptoJS.enc.Utf8);
+             console.log("AES_DATA_OF_SOURCE:" + txt_dexrypted);
+
+              line = '<li><p class="title">IMG:</p><a href="Product_IMG/'+data[n].img+'" target="_blank"><span>'+data[n].img+'</span></a><span><p class="title">MD5SimpleBlockChainhash:</p>'+data[n].BlockChainhash+'</span><span><p class="title">serial:</p>'+data[n].serial+'</span><span><p class="title">Rank:</p>'+txt_dexrypted+'</span><span><p class="title">Stock:</p>'+data[n].stock+'</span></li>';
+             $(target).append(line);
+             line = ""
+             The_AES_DATA = ""
+             decrypted = ""
+             txt_dexrypted = ""
+         }
+     }
+  });
+}
+</script>
+
+</head> 
+<body> 
+<div class="btn" ontouchstart="">
+  <a href="Amulet.JPG">
+    <img src="Yin_yang.svg.png"/>
+    <img src="Yin_yang_opposite.svg.png"/>
+  </a>
+</div>
+   <form class="ProductSearch" name="PS">
+    <fieldset>
+      <legend>ProductSearch</legend>
+      <label>ID </label><input type="text" name="id" value="">
+      <label>PASSWORD </label><input name="mydata_in" id="mydata_in" type="password" value="" />
+      <input type="button" value="Search" onclick="clickBtn1()">
+    </fieldset>
+   </form>
+<p class="ProductSearch">商品の写真： 署名の値:  ランク:  在庫:[0]no have[1]only one have</p>
+<p class="ProductSearch"><span id="span2"></span></p>
+<p class="ProductSearch"><a href="Sign.txt">SEED SIGN FILE</a></p>
+</body> 
+</html> 
