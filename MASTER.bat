@@ -13,18 +13,18 @@ GOTO :NULL
 
 :HELP
 echo /a レコードの追加
-echo /b SIGN.BATでProduct_IMG.jsonに署名(Sign.txtに出力)
+echo /b ブロックチェーンサインファイルのアップロード
 echo /i イメージの検索
 echo /r ランクの検索
 echo /s 在庫の修正
-GOTO :NULL
+GOTO :EOF
 
 :START1
 set /p IMG="Product_IMGフォルダのイメージのファイル名を入力してください。:"
 node Md5Sign.js Product_IMG\%IMG% > TMP.MD5SBH
 FOR /F "tokens=1,2" %%i in (TMP.MD5SBH) do IF %%i==MD5SimpleBlockchainHash: set MD5SBH=%%j
 REM echo %MD5SBH%
-python DB_Add.py %MD5SBH%
+python DB_Add.py %MD5SBH% %IMG%
 GOTO :NULL
 
 :START2
@@ -42,3 +42,7 @@ GOTO :NULL
 :START5
 SIGN.BAT
 GOTO :NULL
+
+:NULL
+set IMG=
+GOTO :EOF
