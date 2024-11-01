@@ -27,6 +27,15 @@ SIGN.BAT
 
  ./Product_IMG.jsonに署名及びに検証
 
+python -m http.server 8000 を実行
+
+http://localhost:8000 にブラウザでアクセス
+
+AES.html でrankcodeを生成して PRSearch.py と DB_Add.py と RANK_CODE.txt のrankcodeを編集して下さい。
+精製した[rankcode]を Product_IMG.json の rank にレコーディングして下さい。
+
+パスフレーズ / Path Phrase でindex.htmlの[rank]を参照できます。
+
 LICENSE MIT
 
 !X!xXx!X! ON THE KUMO PROJECT !X!xXx!X!
