@@ -2,16 +2,16 @@
 TITLE BlockChainHash
 IF "%1"=="" GOTO :HELP0
 IF "%1"=="/s" GOTO :ZERO
-IF NOT "%1"=="" GOTO :ONE
+IF "%1"=="/v" GOTO :ONE
 GOTO :EOF
 
 :HELP0
 echo This Programs is Sign to ./Product_IMG.json file 
-ECHO SIGN.BAT [Seed]
 ECHO SIGN.BAT /s
+ECHO SIGN.BAT /v
 echo ##############
-echo [Seed] ç½²åã‚’æ¤œè¨¼(Sign.txtã¨æ¯”è¼ƒã—ã¦ãã ã•ã„ã€‚)
-echo /s     SEEDã‚’å…¥åŠ›ã—ã¦Sign.txtã«ç½²å
+echo /s SEED‚ð“ü—Í‚µ‚ÄSign.txt‚É–¼
+echo /v ./Product_IMG.json‚ÌŒŸØ(Sign.txt‚Æ”äŠr‚µ‚Ä‚­‚¾‚³‚¢B)
 GOTO :EOF
 
 :ZERO
@@ -22,5 +22,6 @@ set SEED=
 GOTO :EOF
 
 :ONE
-node md5sign ./Product_IMG.json %1
+CALL SET_SEED.bat
+node md5sign ./Product_IMG.json %SEED%
 GOTO :EOF

@@ -1,9 +1,9 @@
-Date:                          2024/10/30 10:39:29
+Date:                          2024/11/01 05:47:05
 FileName:                      ./Product_IMG.json
 File to MD5-Algorithm Val:     55d3075fff0690a9d7c5ef8c63c3328b
 Name:                          玉和道
 TheBaseDomain:                 kumo.site
-TheBaseMailAddress:            kenzihashimoto@ares.eonet.ne.jp
-Seed:                          undefined
-SignBaseVal:                   玉和道kumo.sitekenzihashimoto@ares.eonet.ne.jp55d3075fff0690a9d7c5ef8c63c3328b
-MD5SimpleBlockchainHash:       871907e1b83e65497bc0b2beeed83fb4
+TheBasePhone:                  0743-64-3170
+SeedFingerPrint:               7b113e4bcd820413a54c9d2f397c3e39
+MD5SimpleBlockchainSignature:  e1ea944502cb088cd0c5115b70f17433
+There are seeds in this program.
